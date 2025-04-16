@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_3</title>
+    </head>
+    <body>
+        <label for="number"> 1st Number:</label>
+        <input type="number" id="number" placeholder="Enter number">
+        <br>
+        <label for="number2">2nd number:</label>
+        <input type="number" id="number2" placeholder="Enter number">
+        <br>
+        <button onclick="multiplyNumber(event)">Multiply</button>
+        <button onclick="divideNumber(event)">divide</button>
+        <p id="output"></p>
+        <script>
+            function multiplyNumber(event) {            event.preventDefault();
+            let num1= parseFloat(document.getElementById("number").value);
+            let num2= parseFloat(document.getElementById("number2").value);
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("output").innerText = "Please enter valid numbers";
+                return;
+            }
+
+           let result= num1 * num2;
+            document.getElementById("output").innerText="the multiplication of two numbers is:" + result;
+
+            }
+            function divideNumber(event) {
+            event.preventDefault();
+            let num1 = parseFloat(document.getElementById("number").value);
+            let num2 = parseFloat(document.getElementById("number2").value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("output").innerText = "Please enter valid numbers";
+                return;
+            }
+
+            if (num2 === 0) {
+                document.getElementById("output").innerText = "Division by zero is not allowed";
+                return;
+            }
+
+            let result = num1 / num2;
+            document.getElementById("output").innerText = "The division of two numbers is: " + result;
+        }
+
+
+        </script>
+
+
+
+    </body>
+</html>

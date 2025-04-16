@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .date-section, .time-section {
+            margin-bottom: 20px;
+        }
+        .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="date-section">
+        <div style="background-color: aqua;"></div>
+        <div class="label">show date</div>
+        <div id="dateDisplay"></div>
+    </div>
+    
+    <div class="time-section">
+        <div class="label">show Time</div>
+        <div id="timeDisplay"></div>
+    </div>
+
+    <script>
+        // Function to format the date as "d/Month/YYYY"
+        function formatDate(date) {
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const day = date.getDate();
+            const month = months[date.getMonth()];
+            const year = date.getFullYear();
+            
+            return `${day}/${month}/${year}`;
+        }
+
+        // Function to format the time with timezone
+        function formatTime(date) {
+            const options = {
+                weekday: 'short',
+                month: 'short',
+                day: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZoneName: 'short'
+            };
+            
+            return date.toLocaleString('en-IN', options) + " (India Standard Time)";
+        }
+
+        // Update the displays
+        function updateDisplays() {
+            const now = new Date();
+            
+            document.getElementById('dateDisplay').textContent = formatDate(now);
+            document.getElementById('timeDisplay').textContent = formatTime(now);
+        }
+
+        // Initial update
+        updateDisplays();
+
+        // Update every second to keep time current
+        setInterval(updateDisplays, 1000);
+    </script>
+</body>
+</html>

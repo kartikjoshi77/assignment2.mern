@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    </head>
+    <body>
+        <label for="number">Enter your number</label><br>
+            <input type="number" id="number" placeholder="number" /></br>
+            <input type="submit" onclick="validateForm(event)"/>
+            <p id="output"></p>
+            <script>
+                function validateForm(event){
+                    event.preventDefault();
+                let num= document.getElementById("number").value;
+                if(num===""){
+                    document.getElementById("output").innerText="Please enter your number.";
+                    return;
+                }
+                num=parseInt(num);
+                let reverse= 0;
+                while (num!=0){
+                let last= num % 10;
+                reverse=reverse*10 + last;
+                num=parseInt(num/10);
+}
+document.getElementById("output").innerText = "Reversed number: " + reverse;
+        }
+            </script>
+    </body>
+    </html>

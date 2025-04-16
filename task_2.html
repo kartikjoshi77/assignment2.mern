@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    </head>
+    <body>
+        <label for="text">Enter your string</label><br>
+            <input type="text" id="text" placeholder="Enter your string" /></br>
+            <input type="submit" onclick="validateForm(event)"/>
+            <p id="output"></p>
+            <script>
+                function validateForm(event){
+                    event.preventDefault();
+                let str= document.getElementById("text").value;
+                if(str === ""){
+                    document.getElementById("output").innerText="Please enter your string.";
+                    return;
+                }
+                let reverseStr="";
+                for(let i= str.length - 1; i>=0; i--){
+                    reverseStr += str[i];
+                }
+                document.getElementById("output").innerText = "Reversed text: " + reverseStr;
+
+}
+
+            </script>
+    </body>
+    </html>
